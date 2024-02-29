@@ -23,6 +23,6 @@ mod tests {
     #[test]
     fn test_array_and_vec_similarity() {
         let (a, v) = array_and_vec();
-        assert_eq!(a, v[..]);
+        assert_eq!(a, v[..]); //v[..] vec切片类型类似数组
     }
 }

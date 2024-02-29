@@ -11,7 +11,10 @@
 fn slice_out_of_array() {
     let a = [1, 2, 3, 4, 5];
 
-    let nice_slice = &a[1..4];
+    let nice_slice = &a[1..4]; //[1,4)
+    let nice_slice_1 = &a[1..]; //[1..]
+    let nice_slice_2 = &a[..4]; //[..4)
+    let nice_slice_2 = &a[..]; //[..]
 
     assert_eq!([2, 3, 4], nice_slice)
 }

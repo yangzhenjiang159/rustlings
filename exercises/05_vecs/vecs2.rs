@@ -10,21 +10,15 @@
 
 
 fn vec_loop(mut v: Vec<i32>) -> Vec<i32> {
-    for element in v.iter_mut() {
-        // TODO: Fill this up so that each element in the Vec `v` is
-        // multiplied by 2.
-        *element <<= 1;
+    for element in v.iter_mut() { //将v转化为可变遍历器
+        *element <<= 1; //解引用，对当前元素进行操作，扩大2倍
     }
-
-    // At this point, `v` should be equal to [4, 8, 12, 16, 20].
     v
 }
 
 fn vec_map(v: &Vec<i32>) -> Vec<i32> {
     v.iter().map(|element| {
-        // TODO: Do the same thing as above - but instead of mutating the
-        // Vec, you can just return the new number!
-        element >> 1;
+        element << 1 //放大两倍后返回
     }).collect()
 }
 
@@ -42,7 +36,7 @@ mod tests {
 
     #[test]
     fn test_vec_map() {
-        let v: Vec<i32> = (1..).filter(|x| x % 2 == 0).take(5).collect();
+        let v: Vec<i32> = (1..).filter(|x| x % 2 == 0).take(5).collect(); //2,4,6,8,10
         let ans = vec_map(&v);
 
         assert_eq!(ans, v.iter().map(|x| x * 2).collect::<Vec<i32>>());
